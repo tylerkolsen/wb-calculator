@@ -33,11 +33,31 @@ function sqrt(num1) {
   return num1 ** 0.5
 }
 
+// Factorial function
+function fact(num1) {
+  let factOutput = num1
+  if (num1 === 0) {
+    return 1
+  }
+  if (num1 < 0) {
+    return alert("Not a positive integer")
+  }
+  if (Number.isInteger(num1)) {
+    for (i = num1 - 1; i > 0; i--) {
+      factOutput *= i
+    }
+    return factOutput
+  }
+  return alert("Not an integer")
+}
+
 function calculate(expression) {
+  // conversion of string to array
   let num1
   let operator
   let num2
   const tokens = expression.split(" ")
+  // conversion of array to useful variables; differentiation between 2 and 3 variables
   if (tokens.length === 3) {
     num1 = Number(tokens[0])
     operator = tokens[1]
@@ -48,6 +68,7 @@ function calculate(expression) {
   } else {
     return alert("Invalid Expression")
   }
+  // Check for proper numbers being added
   if (Number.isNaN(num1) && Number.isNaN(num2)) {
     return alert("Both numbers are invalid")
   }
@@ -57,6 +78,7 @@ function calculate(expression) {
   if (Number.isNaN(num2)) {
     return alert("Your second number is invalid")
   }
+  // Actual calculation check
   if (operator === "+") {
     return add(num1, num2)
   }
@@ -78,6 +100,10 @@ function calculate(expression) {
   if (operator === "sqrt") {
     return sqrt(num1)
   }
+  if (operator === "!") {
+    return fact(num1)
+  }
+  // invalid operator check
   return alert("operator is invalid")
 }
 

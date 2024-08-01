@@ -30,10 +30,43 @@ function remainder(num1, num2) {
 
 // Square Root function
 function sqrt(num1) {
-  return Math.sqrt(num1)
+  return num1 ** 0.5
 }
 
-function calculate(expression) {}
+function calculate(expression) {
+  const tokens = expression.split(" ")
+  let num1 = Number(tokens[0])
+  let operator = tokens[1]
+  let num2 = Number(tokens[2])
+  num2 = Number(num2)
+  if (Number.isNaN(num1) && Number.isNaN(num2)) {
+    return alert("Both numbers are invalid")
+  }
+  if (Number.isNaN(num1)) {
+    return alert("Your first number is invalid")
+  }
+  if (Number.isNaN(num2)) {
+    return alert("Your second number is invalid")
+  }
+  if (operator === "+") {
+    return add(num1, num2)
+  }
+  if (operator === "-") {
+    return subtract(num1, num2)
+  }
+  if (operator === "*") {
+    return multiply(num1, num2)
+  }
+  if (operator === "/") {
+    return divide(num1, num2)
+  }
+  if (operator === "^") {
+    return power(num1, num2)
+  }
+  if (operator === "%") {
+    return remainder(num1, num2)
+  }
+}
 
 /* **************** DO NOT EDIT THE CODE BELOW **************** */
 /* ************************************************************ */

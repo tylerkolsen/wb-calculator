@@ -34,11 +34,20 @@ function sqrt(num1) {
 }
 
 function calculate(expression) {
+  let num1
+  let operator
+  let num2
   const tokens = expression.split(" ")
-  let num1 = Number(tokens[0])
-  let operator = tokens[1]
-  let num2 = Number(tokens[2])
-  num2 = Number(num2)
+  if (tokens.length === 3) {
+    num1 = Number(tokens[0])
+    operator = tokens[1]
+    num2 = Number(tokens[2])
+  } else if (tokens.length === 2) {
+    operator = tokens[0]
+    num1 = Number(tokens[1])
+  } else {
+    return alert("Invalid Expression")
+  }
   if (Number.isNaN(num1) && Number.isNaN(num2)) {
     return alert("Both numbers are invalid")
   }
@@ -66,6 +75,10 @@ function calculate(expression) {
   if (operator === "%") {
     return remainder(num1, num2)
   }
+  if (operator === "sqrt") {
+    return sqrt(num1)
+  }
+  return alert("operator is invalid")
 }
 
 /* **************** DO NOT EDIT THE CODE BELOW **************** */
